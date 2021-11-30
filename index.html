@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/8fb19dd542.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script defer src="js/youtube.js"></script>
+    <script defer src="js/custom.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="header_wrap">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">LOGO</a>
+                </h1>
+            </div>
+            <div class="about_btn">
+                <a href="#">ABOUT</a>
+            </div>
+            <div class="port_logo">
+                <p>0jo's portfolio.</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="frame">
+        <div class="scroll_motion">
+            <span></span>
+        </div>
+
+        <ul class="music_list">
+            <li class="active" data-index="0"><a href="#">COVER</a></li>
+            <li data-index="1"><a href="#">VOLUME 1</a></li>
+            <li data-index="2"><a href="#">VOLUME 2</a></li>
+            <li data-index="3"><a href="#">VOLUME 3</a></li>
+            <li data-index="4"><a href="#">VOLUME 4</a></li>
+            <li data-index="5"><a href="#">VOLUME 5</a></li>
+        </ul>
+
+        <div class="music_info_list">
+            <ul>
+                <li>
+                    <div class="music_pic">
+                        <img class="inner_pic3" src="img/list1/flower.png" alt="꽃사진">
+                        <img src="img/list1/megaphone.png" alt="확성기 사진" class="inner_pic4">
+                        <img class="inner_pic1" src="img/list1/brass.png" alt="트럼펫 사진">
+                        <img class="inner_pic2" src="img/list1/hand1.png" alt="손사진">
+                        <img src="img/list1/key.png" alt="열쇠사진" class="inner_pic5">
+                    </div>
+                    <div class="music_tit">
+                        <h2>
+                            Chet Baker<br>
+                            making<br>
+                            this space
+                        </h2>
+                    </div>
+                    <a href="" class="first_play_btn">PLAY</a>
+                </li>
+                <li class="before">
+                    <div class="music_pic"></div>
+                    <div class="music_tit">
+                        <h2>
+                        </h2>
+                    </div>
+                    <div class="music_txt">
+                        <p>
+                            A 1985 film featuring the performance of trumpeter Chet Baker and pianist Paul Blay. A masterpiece of a beautiful ensemble of two musicians that still conveys rich sensibility.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="music_pic"></div>
+                    <div class="music_tit">
+                        <h2>
+                        </h2>
+                    </div>
+                    <div class="music_txt">
+                        <p>
+                            Sometimes called simply “Blue Room,” this song is a Rodgers and Hart classic from 1926. (The songwriting duo also wrote “My Funny Valentine,” “Blue Moon,” and countless other great standards.) Like so many other standard songs originally intended for the Broadway stage, “Blue Room” is open to a wide variety of jazz interpretations.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="music_pic"></div>
+                    <div class="music_tit">
+                        <h2>
+                        </h2>
+                    </div>
+                    <div class="music_txt">
+                        <p>
+                            Originally released as a compilation in 1968 by World Pacific Jazz (also known as Pacific Jazz prior to 1957), Chet Baker Plays And Sings features a selection of the musician’s recordings spanning almost a decade.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="music_pic"></div>
+                    <div class="music_tit">
+                        <h2>
+                        </h2>
+                    </div>
+                    <div class="music_txt">
+                        <p>
+                            In “Time After Time: The Chet Baker Project,” O’Reilly approaches his subject sideways. The playwright himself plays Ted, a writer who is anxious to solve the nagging contradiction between Baker’s brutal and destructive lifestyle and the spirit of romanticism that infuses his music.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="music_pic"></div>
+                    <div class="music_tit">
+                        <h2>
+                        </h2>
+                    </div>
+                    <div class="music_txt">
+                        <p>
+                            It Could Happen to You is an album by jazz trumpeter and vocalist Chet Baker. It follows a formula similar to two other Baker albums, Chet Baker Sings (1954) and Chet Baker Sings and Plays with Bud Shank, Russ Freeman & Strings (recorded in 1955, released in 1964) in which he sings traditional pop standards in a jazzy fashion.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="wave">
+            <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            
+        </div>
+
+        <div id="player" class="hidden"></div>
+    </section>
+
+
+</body>
+</html>

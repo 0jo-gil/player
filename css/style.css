@@ -1,0 +1,541 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Secular One", sans-serif;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table, td, th {
+  border-collapse: collapse;
+}
+
+fieldset {
+  border: none;
+}
+
+input, a, button {
+  outline: 1;
+}
+
+.hidden {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #433937;
+}
+
+.cursor_bg {
+  position: fixed;
+  width: 30vw;
+  height: 30vw;
+  margin-top: -15vw;
+  margin-left: -15vw;
+  border-radius: 50%;
+  background-color: #b39893;
+  filter: blur(100px);
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.26, 0.09, 0, 1.01);
+}
+.cursor_bg.active {
+  transform: scale(1);
+}
+
+#header {
+  width: 100%;
+  padding: 40px;
+  position: relative;
+  z-index: 10;
+}
+#header .header_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#header .header_wrap .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#header .header_wrap .logo h1 a {
+  font-size: 30px;
+  color: #fff;
+}
+#header .header_wrap .about_btn a {
+  font-size: 16px;
+  color: #fff;
+}
+#header .header_wrap .about_btn:hover a {
+  color: #bbb;
+}
+#header .header_wrap .port_logo p {
+  font-size: 16px;
+  color: #fff;
+}
+
+#frame {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 80px 40px 40px 40px;
+  overflow: hidden;
+}
+#frame .scroll_motion {
+  position: absolute;
+  width: 1px;
+  height: 40px;
+  bottom: 0;
+  left: 50%;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.5s 0.2s;
+}
+#frame .scroll_motion span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  animation: scrollAni 2s infinite ease;
+  position: absolute;
+  top: -100%;
+  left: 0;
+}
+#frame .scroll_motion.active {
+  opacity: 1;
+}
+#frame .music_list {
+  position: absolute;
+  bottom: 130px;
+  left: 40px;
+  z-index: 3;
+}
+#frame .music_list li a {
+  display: inline-block;
+  height: 30px;
+  font: 12px/30px "arial";
+  color: #fff;
+  position: relative;
+  opacity: 0.4;
+  transition: 0.5s;
+}
+#frame .music_list li a::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  margin-top: -2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(300%);
+  transition: 0.5s;
+}
+#frame .music_list li.active a {
+  opacity: 1;
+}
+#frame .music_list li.active a::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+#frame .music_info_list {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 35%;
+  z-index: 1;
+}
+#frame .music_info_list ul {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: 1s;
+}
+#frame .music_info_list ul li {
+  width: calc(100% / 6);
+  transform: scale(0.4);
+  transition: 1s;
+  transform-origin: top center;
+  filter: blur(3px);
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+#frame .music_info_list ul li .music_pic {
+  width: 400px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: 710px;
+  background-position: center;
+  filter: grayscale(1);
+}
+#frame .music_info_list ul li .music_pic img {
+  position: absolute;
+}
+#frame .music_info_list ul li .music_pic img.inner_pic1 {
+  width: 400px;
+  top: 87%;
+  left: 26%;
+  transform: rotate(-10deg) scale(0);
+  transition: 1s 0.5s;
+}
+#frame .music_info_list ul li .music_pic img.inner_pic2 {
+  width: 200px;
+  top: 61%;
+  left: 38%;
+  transform: rotate(90deg);
+  object-position: -200px;
+  transition: 1s 1s;
+}
+#frame .music_info_list ul li .music_pic img.inner_pic3 {
+  width: 100px;
+  top: 70%;
+  left: 80%;
+  transform: rotate(0);
+  opacity: 0;
+  transition: 0.5s 1s;
+}
+#frame .music_info_list ul li .music_pic img.inner_pic4 {
+  width: 130px;
+  top: 60%;
+  left: 25%;
+  object-position: 0 300px;
+  transition: 1s 1s;
+}
+#frame .music_info_list ul li .music_pic img.inner_pic5 {
+  width: 40px;
+  top: 100%;
+  left: 97%;
+  transform: rotate(167deg);
+  object-position: 0 -100px;
+  transition: 0.7s 1s;
+}
+#frame .music_info_list ul li .music_tit {
+  width: 200%;
+  position: absolute;
+  top: 50%;
+  left: -45%;
+  transform: translateY(calc(-100% + 24px));
+  overflow: hidden;
+}
+#frame .music_info_list ul li .music_tit h2 {
+  font-size: 70px;
+  color: #fff;
+  opacity: 0;
+  transition: 1s 0.5s;
+}
+#frame .music_info_list ul li .music_txt {
+  position: absolute;
+  width: 50%;
+  top: 60%;
+  left: 100%;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 1s 0.5s;
+}
+#frame .music_info_list ul li .music_txt p {
+  font-size: 16px;
+  color: #fff;
+}
+#frame .music_info_list ul li .first_play_btn {
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 60%;
+  left: -90px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  font: 12px/60px "arial";
+  color: #fff;
+  text-align: center;
+  transform: scale(1);
+  transition: 0.5s;
+}
+#frame .music_info_list ul li .first_play_btn:hover {
+  transform: scale(1.2);
+  color: #111;
+  background: #fff;
+}
+#frame .music_info_list ul li.before {
+  opacity: 1;
+}
+#frame .music_info_list ul li.active {
+  transform: scale(1);
+  filter: blur(0);
+  opacity: 1;
+  z-index: 3;
+}
+#frame .music_info_list ul li.active .music_pic img {
+  object-position: 0;
+}
+#frame .music_info_list ul li.active .music_pic img.inner_pic1 {
+  transform: rotate(-10deg) scale(1);
+}
+#frame .music_info_list ul li.active .music_pic img.inner_pic3 {
+  transform: rotate(360deg);
+  opacity: 1;
+}
+#frame .music_info_list ul li.active .music_pic img.inner_pic4 {
+  animation: vibe 0.3s infinite alternate;
+}
+#frame .music_info_list ul li.active .music_tit h2 {
+  opacity: 1;
+}
+#frame .music_info_list ul li.active .music_txt {
+  transform: translateY(0%);
+  opacity: 1;
+}
+#frame .music_info_list ul li.off {
+  transform: scale(2);
+  opacity: 0;
+}
+#frame .music_txt {
+  width: 200px;
+  position: absolute;
+  top: 60%;
+  left: 70%;
+}
+#frame .music_txt article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+#frame .music_txt article p {
+  font: 15px/1.6 "arial";
+  color: #fff;
+  letter-spacing: 1pxs;
+}
+#frame .music_txt article.active {
+  opacity: 1;
+}
+#frame .wave {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 21;
+}
+#frame .wave a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#frame .wave a span {
+  width: 1px;
+  height: 20%;
+  background: #fff;
+}
+#frame .wave a.on span:nth-of-type(1) {
+  animation: waveAniFull 4s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(2) {
+  animation: waveAniFull 3.2s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(3) {
+  animation: waveAniFull 2.2s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(4) {
+  animation: waveAniFull 1.2s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(5) {
+  animation: waveAniFull 1s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(6) {
+  animation: waveAniFull 2s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(7) {
+  animation: waveAniFull 3s infinite alternate;
+}
+#frame .wave a.on span:nth-of-type(8) {
+  animation: waveAniFull 4.2s infinite alternate;
+}
+#frame .wave a.pause span {
+  animation-play-state: paused;
+}
+#frame::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 20%;
+  opacity: 0.3;
+}
+#frame::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  opacity: 0.3;
+}
+
+.about_mo {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background: #433937;
+  transition: 1s;
+  z-index: 20;
+}
+.about_mo h2 {
+  position: absolute;
+  left: 21%;
+  top: 15%;
+  font-size: 60px;
+  color: #fff;
+}
+.about_mo .about_close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.about_mo .about_close .about_close_btn {
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.about_mo .about_close .about_close_btn:hover {
+  color: #bbb;
+}
+.about_mo .about_info {
+  width: 40%;
+  position: absolute;
+  left: 21%;
+  top: 30%;
+}
+.about_mo .about_info p {
+  font-size: 16px;
+  color: #fff;
+}
+.about_mo .about_footer {
+  position: absolute;
+  bottom: 40px;
+  left: 21%;
+}
+.about_mo .about_footer .about_sns {
+  display: flex;
+  margin-bottom: 40px;
+}
+.about_mo .about_footer .about_sns li {
+  margin-right: 20px;
+}
+.about_mo .about_footer .about_sns li a {
+  font-size: 16px;
+  color: #fff;
+}
+.about_mo .about_footer p {
+  font-size: 14px;
+  color: #fff;
+}
+.about_mo .about_mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 1s 0.5s;
+  background: #fff;
+}
+.about_mo.active {
+  left: 0;
+}
+.about_mo.active .about_mask {
+  left: 100%;
+}
+.about_mo::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 20%;
+  opacity: 0.3;
+}
+.about_mo::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  opacity: 0.3;
+}
+
+@keyframes waveAniFull {
+  0% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 20%;
+  }
+}
+@keyframes vibe {
+  0% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+}
+@keyframes scrollAni {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
